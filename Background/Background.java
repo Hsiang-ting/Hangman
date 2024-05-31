@@ -4,8 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Background extends JFrame {
-    static final int DEFAULT_WIDTH = 600;
-    static final int DEFAULT_HEIGHT = 900;
+    private static final int DEFAULT_WIDTH = 600;
+    private static final int DEFAULT_HEIGHT = 900;
     public Background() {
         this("", DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }
