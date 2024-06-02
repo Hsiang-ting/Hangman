@@ -22,8 +22,11 @@ public class Hangman{
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     JLabel label = (JLabel)e.getComponent();
-                    String text = label.getText();
-                    System.out.println(text);
+                    String ch = label.getText();
+                    System.out.println(ch);
+                    if(!questionPnl.checkAnswer(ch)) {
+                        System.out.println();
+                    }
                 }
                 public void mouseEntered(MouseEvent e) {;}
                 public void mouseExited(MouseEvent e) {;}
