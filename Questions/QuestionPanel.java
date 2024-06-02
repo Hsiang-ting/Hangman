@@ -1,16 +1,14 @@
 package Questions;
 
+import static Constants.Constants.*;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import static Questions.Constants.*;
 
 public class QuestionPanel extends JPanel{
-    private static final int PREF_WIDTH = 50;
-    private static final int PREF_HEIGHT = 50;
+    
     private final String question;
     public QuestionPanel() {
         // display all labels in one row
@@ -28,7 +26,7 @@ public class QuestionPanel extends JPanel{
                 word.setText("_");
             }
             word.setPreferredSize(
-                new Dimension(PREF_WIDTH, PREF_HEIGHT));
+                new Dimension(WORD_WIDTH, WORD_HEIGHT));
             add(word);
         }
     }

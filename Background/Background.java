@@ -3,14 +3,14 @@ package Background;
 import java.awt.*;
 import javax.swing.*;
 
+import static Constants.Constants.*;
+
 public class Background extends JFrame {
-    private static final int DEFAULT_WIDTH = 600;
-    private static final int DEFAULT_HEIGHT = 900;
     public Background() {
-        this("", DEFAULT_WIDTH, DEFAULT_HEIGHT);
+        this("", BACK_WIDTH, BACK_HEIGHT);
     }
     public Background(String title) {
-        this(title, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+        this(title, BACK_WIDTH, BACK_HEIGHT);
     }
     public Background(int width, int height) {
         this("", width, height);
