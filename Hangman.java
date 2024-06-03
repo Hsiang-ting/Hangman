@@ -37,5 +37,6 @@ public class Hangman{
             });
             
         }
+        background.setVisible(true);
     }
 }
