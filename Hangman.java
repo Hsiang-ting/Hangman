@@ -2,14 +2,13 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.*;
 
-import javax.swing.JLabel;
+import javax.swing.JButton;
 
 import Background.*;
 import Questions.QuestionPanel;
 import WordPanel.WordPanel;
 
 public class Hangman{
-    static Background background;
     public static void main(String[] argc) {
         Background background = new Background("Hangman");
         QuestionPanel questionPnl = new QuestionPanel();
@@ -21,11 +20,14 @@ public class Hangman{
             comp.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    JLabel label = (JLabel)e.getComponent();
-                    String ch = label.getText();
-                    System.out.println(ch);
-                    if(!questionPnl.checkAnswer(ch)) {
-                        System.out.println();
+                    if(comp instanceof JButton) {
+                        JButton btn = (JButton) comp;
+                        btn.setVisible(false);
+                        String word = btn.getText();
+                        System.out.println(word);
+                        if(questionPnl.checkAnswer(word)) {
+                            System.out.println("Wrong");
+                        }
                     }
                 }
                 public void mouseEntered(MouseEvent e) {;}
