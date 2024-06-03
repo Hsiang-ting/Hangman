@@ -27,6 +27,8 @@ public class QuestionPanel extends JPanel{
             }
             ch.setPreferredSize(
                 new Dimension(WORD_WIDTH, WORD_HEIGHT));
+            ch.setHorizontalAlignment(JLabel.CENTER);
+            ch.setVerticalAlignment(JLabel.CENTER);
             add(ch);
         }
     }
