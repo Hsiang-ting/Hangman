@@ -13,4 +13,7 @@ public final class Constants {
     public static enum Status {
         WIN, WRONG, CORRECT, LOSE
     };
+    public static enum Painting {
+        HEAD, BODY, ARMS, LEGS
+    };
 }

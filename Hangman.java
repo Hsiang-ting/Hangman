@@ -5,9 +5,11 @@ import java.awt.event.*;
 import javax.swing.JButton;
 
 import Background.*;
+import Constants.Constants.Painting;
 import Constants.Constants.Status;
 import Questions.QuestionPanel;
 import WordPanel.WordPanel;
+import Canva.Canva;
 
 public class Hangman{
     static int wrong;
@@ -15,9 +17,11 @@ public class Hangman{
         Background background = new Background("Hangman");
         QuestionPanel questionPnl = new QuestionPanel();
         WordPanel wordPanel = new WordPanel();
+        Canva canva = new Canva();
         wrong=0;
 
         background.add(questionPnl, BorderLayout.NORTH);
+        background.add(canva, BorderLayout.CENTER);
         background.add(wordPanel, BorderLayout.SOUTH);
         
         for(Component comp: wordPanel.getComponents()) {
@@ -33,14 +37,24 @@ public class Hangman{
                         if(status == Status.WRONG) {
                             wrong++;
                             System.out.println("Wrong:"+wrong);
-                            if(wrong == questionPnl.getQLen()) {
-                                status = Status.LOSE;
-                                System.out.println("LOSE");
+                            Painting painting = null;
+                            switch (wrong) {
+                                case 1: painting = Painting.HEAD; break;
+                                case 2: painting = Painting.BODY; break;
+                                case 3: painting = Painting.ARMS; break;
+                                case 4: 
+                                    painting = Painting.LEGS;
+                                    status = Status.LOSE;
+                                    System.out.println("LOSE");
+                                    break;
+                                default:
+                                    break;
                             }
+                            canva.paintComponent(
+                                canva.getGraphics(), painting);
                         } else if(status == Status.WIN) {
                             System.out.println("Win");
                         }
-
                     }
                 }
                 public void mouseEntered(MouseEvent e) {;}
