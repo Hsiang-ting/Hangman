@@ -5,14 +5,18 @@ import java.awt.event.*;
 import javax.swing.JButton;
 
 import Background.*;
+import Constants.Constants.Status;
 import Questions.QuestionPanel;
 import WordPanel.WordPanel;
 
 public class Hangman{
+    static int wrong;
     public static void main(String[] argc) {
         Background background = new Background("Hangman");
         QuestionPanel questionPnl = new QuestionPanel();
         WordPanel wordPanel = new WordPanel();
+        wrong=0;
+
         background.add(questionPnl, BorderLayout.NORTH);
         background.add(wordPanel, BorderLayout.SOUTH);
         
@@ -25,9 +29,18 @@ public class Hangman{
                         btn.setVisible(false);
                         String word = btn.getText();
                         System.out.println(word);
-                        if(questionPnl.checkAnswer(word)) {
-                            System.out.println("Wrong");
+                        Status status = questionPnl.checkAnswer(word);
+                        if(status == Status.WRONG) {
+                            wrong++;
+                            System.out.println("Wrong:"+wrong);
+                            if(wrong == questionPnl.getQLen()) {
+                                status = Status.LOSE;
+                                System.out.println("LOSE");
+                            }
+                        } else if(status == Status.WIN) {
+                            System.out.println("Win");
                         }
+
                     }
                 }
                 public void mouseEntered(MouseEvent e) {;}

@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 public class QuestionPanel extends JPanel{
     
     private final String question;
+    private int remainWords;
+
     public QuestionPanel() {
         // display all labels in one row
         super(new FlowLayout());
@@ -18,8 +20,9 @@ public class QuestionPanel extends JPanel{
         question = QUESTIONS[randIndex];
         System.out.println("Answer: "+question);
 
+        remainWords = getQLen();
         // set up ch labels of question in panel
-        for(int i=0; i < question.length(); ++i) {
+        for(int i=0; i < getQLen(); ++i) {
             String charAti = String.valueOf(question.charAt(i));
             JLabel ch = new JLabel();
             if(charAti != " ") {
@@ -38,16 +41,22 @@ public class QuestionPanel extends JPanel{
     * then show the labels of ch set visible
     * else return false 
     */
-    public boolean checkAnswer(String word) {
-        boolean exist=false;
+    public Status checkAnswer(String word) {
+        Status status=Status.WRONG;
         char ch = word.charAt(0);
         for(int i=0; i < question.length(); ++i) {
             if(question.toUpperCase().charAt(i) == ch) {
-                exist = true;
+                status = Status.CORRECT;
+                remainWords--;
                 JLabel label = (JLabel)getComponent(i);
                 label.setText(word);
             }
         }
-        return exist;
+        if(remainWords == 0) return Status.WIN;
+        return status;
+    }
+
+    public int getQLen() {
+        return question.length();
     }
 }
