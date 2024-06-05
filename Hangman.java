@@ -38,8 +38,8 @@ public class Hangman{
         JLabel label = new JLabel();
         label.setVerticalAlignment(JLabel.CENTER);
         label.setHorizontalAlignment(JLabel.CENTER);
-        JButton newGame = new JButton("New game");
-        newGame.addActionListener(new ActionListener() {
+        JButton restart = new JButton("Restart");
+        restart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 for(Component comp: wordPanel.getComponents()) { 
@@ -62,7 +62,7 @@ public class Hangman{
                 System.exit(0);
             }
         });
-        panel.add(newGame);
+        panel.add(restart);
         panel.add(exit);
         popup.add(label, BorderLayout.CENTER);
         popup.add(panel, BorderLayout.SOUTH);
