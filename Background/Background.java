@@ -21,9 +21,13 @@ public class Background extends JFrame {
         setSize(width, height);
         // display background to center of a screen 
         setLocationRelativeTo(null);
-        // make background transparent
-        // setUndecorated(true);
-        // setBackground(new Color(1.0f, 1.0f, 1.0f, 0.0f));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    public void setFullScreen() {
+        setExtendedState(MAXIMIZED_BOTH);
+    }
+    public void setTransparent() {
+        setUndecorated(true);
+        setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
     }
 }
