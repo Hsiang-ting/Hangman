@@ -1,12 +1,14 @@
 package Canva;
 
+import static Constants.Constants.*;
+import static Constants.Constants.IMG_DIR;
+
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -50,7 +52,7 @@ public class Canva extends JPanel {
                 BufferedImage img = null;
                 JLabel pic = null;
                 try {
-                    img = ImageIO.read(new File("hold.png"));
+                    img = ImageIO.read(new File(IMG_DIR+HOLD_IMAGE));
                     pic = new JLabel(new ImageIcon(img));
                 } catch (Exception e) {
                     e.getStackTrace();
