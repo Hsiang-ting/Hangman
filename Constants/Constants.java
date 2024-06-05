@@ -6,7 +6,7 @@ public final class Constants {
     public static final int WORD_WIDTH = 50;
     public static final int WORD_HEIGHT = 50;
     public static final String[] QUESTIONS = 
-        {"Panda", "Pig"};
+        {"Panda", "Pig", "Hangman", "Cat", "Word", "Question", "Bird"};
     public static final int Q_NUM = QUESTIONS.length;
     public static final int CHAR_NUM = 26;
 
@@ -14,6 +14,6 @@ public final class Constants {
         WIN, WRONG, CORRECT, LOSE
     };
     public static enum Painting {
-        HEAD, BODY, ARMS, LEGS
+        HEAD, BODY, ARMS, LEGS, LOSE
     };
 }

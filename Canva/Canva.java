@@ -4,6 +4,13 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Constants.Constants.Painting;
@@ -38,6 +45,17 @@ public class Canva extends JPanel {
                 int y2 = this.getHeight()*7/8;
                 g2.drawLine(x, y1, x+arm_span, y2);
                 g2.drawLine(x, y1, x-arm_span, y2);
+            } else if(painting == Painting.LOSE) {
+                repaint();
+                BufferedImage img = null;
+                JLabel pic = null;
+                try {
+                    img = ImageIO.read(new File("hold.png"));
+                    pic = new JLabel(new ImageIcon(img));
+                } catch (Exception e) {
+                    e.getStackTrace();
+                }
+                add(pic);
             }
         }
     }

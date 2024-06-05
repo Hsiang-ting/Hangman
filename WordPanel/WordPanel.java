@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 public class WordPanel extends JPanel{
     public WordPanel() {
         super(new GridLayout(2, 13));
-       
+        
         for(int i=0; i < CHAR_NUM; ++i) {
             JButton word = new JButton(String.valueOf(Character.toChars(i+'A')));
             word.setPreferredSize(
