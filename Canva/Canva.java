@@ -1,7 +1,6 @@
 package Canva;
 
 import static Constants.Constants.*;
-import static Constants.Constants.IMG_DIR;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
