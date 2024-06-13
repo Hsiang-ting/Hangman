@@ -10,7 +10,7 @@ Hangman is a classic word guessing game where players attempt to guess a hidden 
     java Hangman
     ```
 2. Once the game starts, you will be presented with a row of dashes representing the hidden word.
-3. Guess a letter by click it on the panel.
+3. Guess a letter by clicking it on the panel.
 4. If the letter is in the word, it will be revealed in its correct position(s). If not, you'll lose one of your attempts.
 5. Continue guessing letters until you either guess the word correctly or run out of attempts.
 6. The game ends when you either successfully guess the word or exhaust all your attempts.
